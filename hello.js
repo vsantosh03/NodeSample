@@ -1,28 +1,13 @@
-/*var lastName = 'post';
-var firstName ='The Washington';
-var fullName = firstName+ " "+ lastName;
+var express = require('express')
+var app = express()
 
-console.log(fullName);
-console.log(fullName.length);
+app.set('port', (process.env.PORT || 5000))
+app.use(express.static(__dirname + '/public'))
 
+app.get('/', function(request, response) {
+  response.send('Hello World!')
+})
 
-var math= 29;
-var science= 34;
-var eng= 34;
-var percentage= ((math+ science+ eng)/3);
-console.log('Percentage'+" "+ percentage);
-if (percentage >= 35){
-  console.log("Pass")
-}else {
-console.log("fail");
-}
-*/
-var name = 'vank';
-if (name === 'kumar' || name === 'vsk'){
-  console.log(" your name is San");
-}else if (name === 'vank'){
-  console.log('firstname of san');
-} else
-{
-  console.log('Hi VSK')
-}
+app.listen(app.get('port'), function() {
+  console.log("Node app is running at localhost:" + app.get('port'))
+})
